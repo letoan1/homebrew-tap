@@ -14,14 +14,16 @@ cask "roost" do
 
   # Roost updates itself through Sparkle after the first install.
   auto_updates true
-  depends_on macos: ">= :sonoma"
+  depends_on macos: :sonoma
 
   app "Roost.app"
 
   # Roost is not notarized: clear the quarantine flag so the first launch is not blocked by Gatekeeper.
-  postflight do
-    system_command "/usr/bin/xattr",
-                   args: ["-dr", "com.apple.quarantine", "#{appdir}/Roost.app"]
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "{{appdir}}/Roost.app"],
+        writable_paths: ["Roost.app"],
+        writable_base:  :appdir
   end
 
   uninstall quit: "io.github.letoan1.roost"
