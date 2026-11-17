@@ -1,6 +1,6 @@
 cask "roost" do
-  version "1.0.3"
-  sha256 "7ef39351df44c6561cc307580ef9bfb0df5a315e4f59f7ba221290947865cfd9"
+  version "1.0.4"
+  sha256 "aad2c854abbe034b721aa35f8ef906db46e31875c6d7468213077e7c48093df7"
 
   url "https://github.com/letoan1/notch-app/releases/download/v#{version}/Roost-#{version}.dmg"
   name "Roost"
